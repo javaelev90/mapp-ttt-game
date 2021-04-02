@@ -1528,10 +1528,12 @@ MonoBehaviour:
   restartButton: {fileID: 1780671687}
   playerX:
     panel: {fileID: 2063206760}
+    playerIcon: {fileID: 21300000, guid: f58a4c256e51841ce9c737e30aab11c6, type: 3}
     text: {fileID: 673610460}
     button: {fileID: 2063206762}
   playerO:
     panel: {fileID: 1249976679}
+    playerIcon: {fileID: 21300000, guid: 2ad28563bb8d543a38342c5903f30931, type: 3}
     text: {fileID: 1237362862}
     button: {fileID: 1249976681}
   activePlayerColor:
@@ -3183,6 +3185,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012093288200316464, guid: 0a08e46fde4040d44b3d619337a6d7d8, type: 3}
       propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012093288200316464, guid: 0a08e46fde4040d44b3d619337a6d7d8, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

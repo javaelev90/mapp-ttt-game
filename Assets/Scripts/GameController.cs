@@ -8,6 +8,7 @@ using TMPro;
 [System.Serializable]
 public class Player {
    public Image panel;
+   public Sprite playerIcon;
    public TMP_Text text;
    public Button button;
 }
@@ -81,6 +82,15 @@ public class GameController : MonoBehaviour
     public string GetPlayerSide ()
     {
         return playerSide;
+    }
+
+    public Sprite GetPlayerSideIcon ()
+    {
+        if(playerSide == "X"){
+            return playerX.playerIcon;
+        } else {
+            return playerO.playerIcon;
+        }
     }
 
     public void EndTurn ()
@@ -175,12 +185,23 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void SetPlayerColors (Player newPlayer, Player oldPlayer)
+    void SetPlayerColors2 (Player newPlayer, Player oldPlayer)
     {
         newPlayer.panel.color = activePlayerColor.panelColor;
         newPlayer.text.color = activePlayerColor.textColor;
         oldPlayer.panel.color = inactivePlayerColor.panelColor;
         oldPlayer.text.color = inactivePlayerColor.textColor;
+    }
+
+    void SetPlayerColors (Player newPlayer, Player oldPlayer)
+    {
+        //newPlayer.panel.color = activePlayerColor.panelColor;
+        //newPlayer.text.color = activePlayerColor.textColor;
+        newPlayer.panel.GetComponent<Image>().sprite = newPlayer.playerIcon;
+        //oldPlayer.panel.color = inactivePlayerColor.panelColor;
+        //oldPlayer.text.color = inactivePlayerColor.textColor;
+        oldPlayer.panel.GetComponent<Image>().sprite = null;
+
     }
 
     void GameOver (string winningPlayer)
@@ -215,7 +236,8 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < buttonList.Length; i++)
         {
-            buttonList [i].text = "";
+            buttonList[i].text = "";
+            buttonList[i].GetComponentInParent<Image>().sprite = null;
         }
     }
 
@@ -233,11 +255,22 @@ public class GameController : MonoBehaviour
         playerO.button.interactable = toggle;  
     }
 
-    void SetPlayerColorsInactive ()
+    void SetPlayerColorsInactive2 ()
     {
         playerX.panel.color = inactivePlayerColor.panelColor;
         playerX.text.color = inactivePlayerColor.textColor;
         playerO.panel.color = inactivePlayerColor.panelColor;
         playerO.text.color = inactivePlayerColor.textColor;
+    }
+
+    void SetPlayerColorsInactive ()
+    {
+        //playerX.panel.color = inactivePlayerColor.panelColor;
+        //playerX.text.color = inactivePlayerColor.textColor;
+        //playerO.panel.color = inactivePlayerColor.panelColor;
+        //playerO.text.color = inactivePlayerColor.textColor;
+        //playerX.panel.GetComponent<Image>().sprite = playerX.playerIcon;
+        //playerO.panel.GetComponent<Image>().sprite = playerO.playerIcon;
+
     }
 }
