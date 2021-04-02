@@ -7,7 +7,7 @@ using TMPro;
 public class GridSpace : MonoBehaviour
 {
     public Button button;
-    public TMP_Text buttonText;
+    public string buttonText;
     public string playerSide;
 
     private GameController gameController;
@@ -18,16 +18,16 @@ public class GridSpace : MonoBehaviour
     }
     public void SetSpace2 ()
     {
-        buttonText.text = gameController.GetPlayerSide();
+        // buttonText.text = gameController.GetPlayerSide();
         button.interactable = false;
         gameController.EndTurn();
     }
 
     public void SetSpace ()
     {
-        buttonText.text = gameController.GetPlayerSide();
-        buttonText.color = new Color32(0,0,0,0);
+        playerSide = gameController.GetPlayerSide();
         GetComponent<Image>().sprite = gameController.GetPlayerSideIcon();
+        GetComponent<Image>().color = new Color32(255,255,255,255);
         button.interactable = false;
         gameController.EndTurn();
     }
