@@ -7,7 +7,6 @@ using TMPro;
 public class GridSpace : MonoBehaviour
 {
     public Button button;
-    public string buttonText;
     public string playerSide;
 
     private GameController gameController;
@@ -16,12 +15,7 @@ public class GridSpace : MonoBehaviour
     {
         gameController = controller;
     }
-    public void SetSpace2 ()
-    {
-        // buttonText.text = gameController.GetPlayerSide();
-        button.interactable = false;
-        gameController.EndTurn();
-    }
+
 
     public void SetSpace ()
     {
